@@ -57,11 +57,34 @@ Before running the app, ensure you have the `llama3` model (or the one you confi
 ollama pull llama3
 ```
 
-Verify it's running:
 ```bash
 ollama list
 ollama serve
 ```
+
+## Configuration
+
+The application supports both **Ollama** (default) and **Google Gemini** models. You can configure this via environment variables.
+
+1. Create a `.env` file in the root directory (copy from `.env.example`):
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Edit `.env` to set your provider:
+
+   **For Ollama (Default):**
+   ```bash
+   MODEL_PROVIDER=ollama
+   ```
+
+   **For Google Gemini:**
+   1. Get your API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
+   2. Configure `.env`:
+   ```bash
+   MODEL_PROVIDER=gemini
+   GOOGLE_API_KEY=your-gemini-api-key
+   ```
 
 ## Installation
 

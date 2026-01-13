@@ -1,6 +1,6 @@
 
 import { Injectable } from '@nestjs/common';
-import { sampleAgent } from '../agent/sample.agent';
+import { sampleAgent, modelProvider } from '../agent/sample.agent';
 import { InMemoryRunner } from '@google/adk';
 import { Content } from '@google/genai';
 
@@ -13,6 +13,8 @@ export class AdkService {
     }
 
     async runAgent(prompt: string) {
+        console.log(`[Request] Prompt: "${prompt}" | Model Provider: ${modelProvider}`);
+
         const userId = 'user-1';
         const sessionId = 'session-1';
         const appName = 'adk-agent-example';
